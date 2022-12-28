@@ -1,0 +1,40 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sophos-telemetry
+  namespace: istio-system
+  labels:
+    app: sophos-telemetry
+spec:
+  selector:
+    app: sophos-telemetry
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sophos-telemetry
+  namespace: istio-system
+  labels:
+    app: sophos-telemetry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sophos-telemetry
+  template:
+    metadata:
+      labels:
+        app: sophos-telemetry
+    spec:
+      containers:
+      - name: sophos-telemetry
+        image: ghcr.io/amarchese96/sophos-telemetry:7fdea3c
+        env:
+        - name: PROMETHEUS_ADDRESS
+          value: http://prometheus-server.istio-system:9090
+        ports:
+        - containerPort: 8080
