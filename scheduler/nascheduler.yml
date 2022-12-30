@@ -1,5 +1,5 @@
 scheduler:
-  image: ghcr.io/amarchese96/kube-scheduler:nascheduling-0.0.7
+  image: ghcr.io/amarchese96/kube-scheduler:nascheduling-0.0.10
 
 plugins:
   enabled: ["NetworkAwareScheduling"]
