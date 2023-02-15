@@ -21,13 +21,13 @@ kubectl label namespace default istio-injection=enabled
 - Install prometheus server
 ```
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm install prometheus prometheus-community/prometheus -n istio-system --values prometheus.yml
+helm install prometheus prometheus-community/prometheus -n istio-system --values prometheus.yml --version 19.3.3
 ```
 
 - Install grafana dashboard
 ```
 helm repo add grafana https://grafana.github.io/helm-charts
-helm install grafana grafana/grafana -n istio-system --values grafana.yml
+helm install grafana grafana/grafana -n istio-system --values grafana.yml --version 6.50.6
 ```
 
 - Install jaeger
@@ -50,14 +50,14 @@ kubectl apply -f telemetry.yml
 kubectl apply -f cluster-monitor.yml
 ```
 
-- Install sophos-app-controller:
+- Install sophos-app-configurator:
 ```
-kubectl apply -f app-controller.yml
+kubectl apply -f app-configurator.yml
 ```
 
 - Clean up
 ```
-kubectl delete -f app-controller.yml
+kubectl delete -f app-configurator.yml
 kubectl delete -f cluster-monitor.yml
 kubectl delete -f telemetry.yml
 kubectl delete -f kiali.yml

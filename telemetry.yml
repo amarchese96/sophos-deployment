@@ -32,7 +32,7 @@ spec:
     spec:
       containers:
       - name: sophos-telemetry
-        image: ghcr.io/amarchese96/sophos-telemetry:d6a32b1
+        image: ghcr.io/amarchese96/sophos-telemetry:e6056ee
         env:
         - name: PROMETHEUS_ADDRESS
           value: http://prometheus-server.istio-system:9090

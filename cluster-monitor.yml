@@ -20,8 +20,12 @@ spec:
                 additionalProperties:
                   type: string
                 type: object
-              runInterval:
+              runPeriod:
                 type: integer
+              resourceMonitorEnabled:
+                type: boolean
+              networkCostMonitorEnabled:
+                type: boolean
             type: object
           status:
             type: object
@@ -174,7 +178,7 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
-        image: ghcr.io/amarchese96/sophos-cluster-monitor:9b8fc92
+        image: ghcr.io/amarchese96/sophos-cluster-monitor:e480933
         imagePullPolicy: Always
         livenessProbe:
           failureThreshold: 3

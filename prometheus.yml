@@ -1,13 +1,7 @@
 alertmanager:
   enabled: false
 
-kubeStateMetrics:
-  enabled: false
-
-nodeExporter:
-  enabled: true
-
-pushgateway:
+prometheus-pushgateway:
   enabled: false
 
 server:
